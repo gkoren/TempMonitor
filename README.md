@@ -14,7 +14,7 @@ The temperature monitoring system contains four main components:
 
 A sketch illustrating how to connect the components is available in [/doc/FullSetup.jpg](https://github.com/gkoren/TempMonitor/blob/master/doc/FullSetup.jpg)
 
-Eventually we designed a specail board that can be placed on top of the Arduino controller with the other componnents connected to it:  
+Eventually we designed a special board that can be placed on top of the Arduino controller with the other components connected to it:  
     ![CustomSetup](/doc/CustomSetup.png)
     
       
@@ -31,7 +31,7 @@ Arduino has great documentation, and if there are any parts I left out you can l
 Before going into specific instructions for this project, you'll need to download and install the Arduion IDE which allows to upload code onto the Arduino. Once the code is uploaded on the Arduino it should run in the background regardless of the GUI.
 
 In the "/Arduino" folder there are 3 subfolders: 2 containing the code files (one for serial communication and one for wifi communication via UDP),
-and another folder with necessary libraries (don't need to do anything with these files, just have them saved). Note: this documenation contains instructions only for monitoring via Wifi communication.
+and another folder with necessary libraries (don't need to do anything with these files, just have them saved). Note: this documentation contains instructions only for monitoring via Wifi communication.
 
 1. **Connecting the Arduino to a Wifi network:**
     1. Connect the Arduino board to your computer USB port and open the file "Arduino/ESP_dialog/ESP_dialog.ino". This script will allow to communicate and gove commands directly to the Wifi chip.  
@@ -40,7 +40,7 @@ and another folder with necessary libraries (don't need to do anything with thes
         ![Readme1](/doc/images/Readme/1.png)  
         
           
-    1. Click on the 'Serial Monitor' button (top right) to type commands to the board. Make sure that the settings in the bottom are set like in the picture. Type `AT` in the command line and then press 'Enter/Send'. Wait to receive the 'OK' mesaage back on the screen.  
+    1. Click on the 'Serial Monitor' button (top right) to type commands to the board. Make sure that the settings in the bottom are set like in the picture. Type `AT` in the command line and then press 'Enter/Send'. Wait to receive the 'OK' message back on the screen.  
           
         ![Readme3](/doc/images/Readme/3.png)  
     
@@ -81,16 +81,16 @@ Now that the Arduino code runs in the background and temperature data is being s
     
     ![Readme6](/doc/images/Readme/6.png)    
     
-4. You can click 'Sensor Statistics' to display a plot of *temperature vs time* for all the connected sensors, and then select to display only a specifc sensors from the window on the right.  
+4. You can click 'Sensor Statistics' to display a plot of *temperature vs time* for all the connected sensors, and then select to display only a specific sensors from the window on the right.  
     ![Readme7](/doc/images/Readme/7.png)    
     
-6. When pressing 'Stop' you will be asked if you want to save the data as a .csv file (or altenratively you can click 'Export to Excel' in any time). The data will be save in the main directory with a name matching the timestamp of the measurement. **It is recommended to rename the file after saving it. It will otherwise be hard to distinguish between different files.**
+6. When pressing 'Stop' you will be asked if you want to save the data as a .csv file (or alternatively you can click 'Export to Excel' in any time). The data will be save in the main directory with a name matching the timestamp of the measurement. **It is recommended to rename the file after saving it. It will otherwise be hard to distinguish between different files.**
 
 
 ### Information on TempMonitor GUI code structure
 
-As mentioned above, the GUI is initiated from the main script in the home directory "Temp_monitor.py". Inside the code you'll find a *TempMonitor* class in which all the objects and actions of the GUI windows are defined. This class uses additional auxilary files which can be found inside the "/python/" folder:
-* The files `MainWndow.py`, `PlotsWndow.py`, `plots_area.py` are related to the graphics part of the GUI, and control how the different windows change based on the user's actions. Note that for each file exists a corresponding `.ui` file which contains the actual propoerties to be displayed and used by 'Qt'.
+As mentioned above, the GUI is initiated from the main script in the home directory "Temp_monitor.py". Inside the code you'll find a *TempMonitor* class in which all the objects and actions of the GUI windows are defined. This class uses additional auxiliary files which can be found inside the "/python/" folder:
+* The files `MainWndow.py`, `PlotsWndow.py`, `plots_area.py` are related to the graphics part of the GUI, and control how the different windows change based on the user's actions. Note that for each file exists a corresponding `.ui` file which contains the actual properties to be displayed and used by 'Qt'.
 * The files `wifi_monitor.py`, `com_monitor.py` control the communication thread (UDP and serial, respectivelly) b/w Arudiono & computer. The communication is performed using 'Queue' and 'threading' libraries in python.
 * The file `live_feed.py` allows to read the most recent data and checks if there's information needed to be updated. 
 * The files `setup.py` and `setup_cx_freeze.py` are needed for bundling of the scripts into a Windows-executable file. 
