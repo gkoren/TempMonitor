@@ -60,7 +60,7 @@ and another folder with necessary libraries (don't need to do anything with thes
     2. Make sure that the line reads `int n_Sensors` matches the number of sensors you have connected to the Arduino. 
     3. After the correct IP adress is updated, save the file and upload the code to the Arduino board (top left)  
           
-        ![Readme5](/doc/images/Readme/5.png)  
+        ![Readme5](/doc/images/Readme/5b.png)  
         
 #### Step 2 : Python code / TempMonitor GUI
 
@@ -84,5 +84,5 @@ Now that the Arduino code runs in the background and temperature data is being s
 4. You can click 'Sensor Statistics' to display a plot of *temperature vs time* for all the connected sensors, and then select to display only a specifc sensors from the window on the right.  
     ![Readme7](/doc/images/Readme/7.png)    
     
-6. When pressing 'Stop' you will be asked if you want to save the data as a .csv file (or altenratively you can click 'Export to Excel' in any time). The data will be save in the main directory with a name matching the timestamp of the measurement. ** It is recommended to rename the file after saving it. It will otherwise be hard to distinguish between different files. **
+6. When pressing 'Stop' you will be asked if you want to save the data as a .csv file (or altenratively you can click 'Export to Excel' in any time). The data will be save in the main directory with a name matching the timestamp of the measurement. **It is recommended to rename the file after saving it. It will otherwise be hard to distinguish between different files.**
 
