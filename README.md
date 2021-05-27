@@ -86,3 +86,11 @@ Now that the Arduino code runs in the background and temperature data is being s
     
 6. When pressing 'Stop' you will be asked if you want to save the data as a .csv file (or altenratively you can click 'Export to Excel' in any time). The data will be save in the main directory with a name matching the timestamp of the measurement. **It is recommended to rename the file after saving it. It will otherwise be hard to distinguish between different files.**
 
+
+### Information on TempMonitor GUI code structure
+
+As mentioned above, the GUI is initiated from the main script in the home directory "Temp_monitor.py". Inside the code you'll find a *TempMonitor* class in which all the objects and actions of the GUI windows are defined. This class uses additional auxilary files which can be found inside the "/python/" folder:
+* The files `MainWndow.py`, `PlotsWndow.py`, `plots_area.py` are related to the graphics part of the GUI, and control how the different windows change based on the user's actions. Note that for each file exists a corresponding `.ui` file which contains the actual propoerties to be displayed and used by 'Qt'.
+* The files `wifi_monitor.py`, `com_monitor.py` control the communication thread (UDP and serial, respectivelly) b/w Arudiono & computer. The communication is performed using 'Queue' and 'threading' libraries in python.
+* The file `live_feed.py` allows to read the most recent data and checks if there's information needed to be updated. 
+* The files `setup.py` and `setup_cx_freeze.py` are needed for bundling of the scripts into a Windows-executable file. 
